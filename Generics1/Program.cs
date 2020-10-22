@@ -28,6 +28,8 @@ namespace Generics1
 
             Console.WriteLine("Max: ");
             Console.WriteLine(max);
+
         }
+
     }
 }
