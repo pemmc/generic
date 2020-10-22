@@ -4,10 +4,10 @@ namespace Generics1
 {
     public class PrintService
     {
-        private int[] _values = new int[10];
+        private object[] _values = new object[10];
         private int _count = 0;
 
-        public void addValue(int value)
+        public void addValue(object value)
         {
             if(_count ==10)
             {
@@ -19,7 +19,7 @@ namespace Generics1
 
         }
 
-        public int First()
+        public object First()
         {
             if (_count == 0)
             {
