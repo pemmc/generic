@@ -2,12 +2,12 @@
 
 namespace Generics1
 {
-    public class PrintService
+    public class PrintService<Tipo>
     {
-        private object[] _values = new object[10];
+        private Tipo[] _values = new Tipo[10];
         private int _count = 0;
 
-        public void addValue(object value)
+        public void addValue(Tipo value)
         {
             if(_count ==10)
             {
@@ -19,7 +19,7 @@ namespace Generics1
 
         }
 
-        public object First()
+        public Tipo First()
         {
             if (_count == 0)
             {

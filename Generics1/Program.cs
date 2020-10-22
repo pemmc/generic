@@ -9,9 +9,10 @@ namespace Generics1
         {
             try
             {
-                PrintService printService = new PrintService();
+                //USANDO O GENERICS... com a tipagem lá na classe printservice do tipo ===> PrintService<Tipo>
+                PrintService<int> printServiceInt = new PrintService<int>();
 
-                Console.Write("Quanto valores? ");
+                Console.Write("Quanto valores desejas entrar? (entre com números) ");
 
                 int n = int.Parse(Console.ReadLine());
 
@@ -19,14 +20,33 @@ namespace Generics1
                 {
                     int x = int.Parse(Console.ReadLine());
 
-                    printService.addValue(x);
+                    printServiceInt.addValue(x);
 
                 }
 
-                printService.print();
+                printServiceInt.print();
                 Console.WriteLine();
 
-                Console.WriteLine("First: " + printService.First());
+                Console.WriteLine("First: " + printServiceInt.First());
+
+                PrintService<string> printServiceString = new PrintService<string>();
+
+                Console.Write("Quanto valores desejas entrar? (entre com strings) ");
+
+                n = int.Parse(Console.ReadLine());
+
+                for (int i = 0; i < n; i++)
+                {
+                    string s = Console.ReadLine();
+
+                    printServiceString.addValue(s);
+
+                }
+
+                printServiceString.print();
+                Console.WriteLine();
+
+                Console.WriteLine("First: " + printServiceString.First());
 
             }
             catch (InvalidOperationException e)
