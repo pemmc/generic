@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 using Generics1.Services;
+using Generics1.Entities;
 
 namespace Generics1
 {
@@ -9,22 +11,25 @@ namespace Generics1
     {
         static void Main(string[] args)
         {
-            List<int> list = new List<int>();
+            List<Products> list = new List<Products>();
 
             Console.WriteLine("Digite N: ");
             int n = int.Parse(Console.ReadLine());
 
             for (int i = 0; i < n; i++)
             {
-                int x = int.Parse(Console.ReadLine());
+                string[] vect = Console.ReadLine().Split(',');
 
-                list.Add(x);
+                string name = vect[0];
+                double price = double.Parse(vect[1], CultureInfo.InvariantCulture);
+
+                list.Add(new Products(name, price));
 
             }
 
             CalculationService calculationService = new CalculationService();
 
-            int max = calculationService.Max(list);
+            Products max = calculationService.Max(list);
 
             Console.WriteLine("Max: ");
             Console.WriteLine(max);
